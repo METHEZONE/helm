@@ -1,0 +1,25 @@
+{
+  "name": "helm",
+  "version": "1.0.0",
+  "description": "helm — AI navigator that steers your money across every asset class toward your goal",
+  "scripts": {
+    "market": "node src/market.js",
+    "check": "node src/fleet.js",
+    "setup": "node src/setup-chain.js",
+    "voyages": "node src/voyages.js",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/METHEZONE/helm.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/METHEZONE/helm/issues"
+  },
+  "homepage": "https://github.com/METHEZONE/helm#readme",
+  "dependencies": {
+    "xrpl": "^4.6.0"
+  },
+  "type": "module"
+}
