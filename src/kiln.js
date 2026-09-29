@@ -20,6 +20,7 @@ export async function activeModel() {
   if (model) return model;
   const probe = await raw(cfg.kilnModel, [{ role: 'user', content: 'ping' }], 1).catch((e) => ({ status: 0, body: { error: { code: String(e.cause?.code || e.name) } } }));
   model = probe.status === 200 ? cfg.kilnModel : cfg.kilnFallback;
+  calls.push({ at: new Date().toISOString(), flow: 'probe', model: cfg.kilnModel, status: probe.status, error: probe.body?.error?.code || null, fallback: model, prompt: 0, completion: 0, reasoning: 0, ms: probe.ms || 0, joulesMax: 0 });
   if (model !== cfg.kilnModel) console.warn(`[kiln] ${cfg.kilnModel} → HTTP ${probe.status} ${probe.body?.error?.code || ''}; using ${model}`);
   return model;
 }

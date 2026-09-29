@@ -151,6 +151,8 @@ export async function voyage(spec, on = () => {}) {
   const book = await chain.logbook(acct.sailor.address);
   const signed = book.filter((r) => ['charter', 'amend'].includes(r.type) && r.data.v === spec.id).at(-1);
   if (!signed || signed.hash !== ch.hash) throw new Error('charter not found on-chain');
+  // From here on the signed terms are the goal, not the model's parse of the request.
+  Object.assign(goal, { stake: signed.data.stake, target: signed.data.target, deadline: signed.data.by, maxDrawdown: signed.data.dd, exclude: signed.data.ex });
   log.push(step('read', { from: 'sailor logbook', hash: signed.hash, ledger: signed.ledger }));
 
   const sea = chartSea(goal);

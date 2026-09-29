@@ -1,13 +1,14 @@
 {
   "name": "helm",
   "version": "1.0.0",
-  "description": "helm — AI navigator that steers your money across every asset class toward your goal",
+  "description": "helm \u2014 AI navigator that steers your money across every asset class toward your goal",
   "scripts": {
     "market": "node src/market.js",
     "check": "node src/fleet.js",
     "setup": "node src/setup-chain.js",
     "voyages": "node src/voyages.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "verify": "node scripts/verify.mjs"
   },
   "repository": {
     "type": "git",

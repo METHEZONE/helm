@@ -1,6 +1,6 @@
 # helm
 
-> **Declared function:** helm is an **asset-management agent**. You name a money goal in your own words. It charts every course across T‑bills, Korean treasuries (국채), stocks, REITs, gold and crypto, then does one of three things inside the budget, dip limit and assets you signed on‑chain. It **sets sail** and executes every trade on XRPL Testnet, it **re‑plans** when your budget or deadline changes, or it **declines** (on‑chain, with counter‑offers) when the goal can't be met.
+> **Declared function:** helm is an asset‑management agent that turns a plain‑words money goal into a charter the user signs on XRPL Testnet, then either invests it across 9 tokenized asset classes (T‑bills, 국채, stocks, REITs, gold, BTC/ETH/SOL, memecoins) inside the signed budget, dip limit and exclusions, re‑plans when the budget or deadline changes, or declines on‑chain with computed counter‑offers when the goal can't be met.
 
 **GWDC 2026 Korea · FuriosaAI × Bricksum bonus track · Challenge A: "Build a Financial Service Powered by AI Agents and Blockchain."**
 Inference is the **Kiln API** (Bricksum NPU cloud). The chain is the **XRPL Testnet** (tokenized assets, AMM pools, memo'd records). Solo team: THE ZONE (Minsung Park).
@@ -10,6 +10,7 @@ Inference is the **Kiln API** (Bricksum NPU cloud). The chain is the **XRPL Test
 | 🎬 Demo video (≤ 3 min) | [`docs/helm-demo.mp4`](docs/helm-demo.mp4) |
 | 📑 Deck (10 pages) | [`docs/helm-deck.pdf`](docs/helm-deck.pdf) |
 | ⛓ Live accounts (XRPL Testnet) | <!--ACCOUNTS-->sailor [`rfMn7Gwk…`](https://testnet.xrpl.org/accounts/rfMn7GwkqsBoLizfMdpVczZuBhGvVkjSvG) · vault [`rDVdhJ2x…`](https://testnet.xrpl.org/accounts/rDVdhJ2xp7bWikTGjZw9bx1H7uueiAGdyv) · mint [`rJVZH5H3…`](https://testnet.xrpl.org/accounts/rJVZH5H3VJWwGoCycwcERyzDX8H1nXMysR) · exchange [`rKoYQebv…`](https://testnet.xrpl.org/accounts/rKoYQebvLddx1PsXPEWnadwHz3XhGAZZ1Z)<!--/ACCOUNTS--> |
+| ✅ Verify without a key | `npm install && npm run verify` re‑hashes every recorded decision and compares it with the ledger (read‑only) |
 | 🧾 Proof | [Track A runs](#3-track-a-runs-on-xrpl-testnet), [Kiln calls per flow](#5-kiln-api-per-flow-tokens-energy), `data/voyages/*.json` (full event logs) |
 
 ![helm voyage](docs/img/voyage.png)
@@ -113,7 +114,7 @@ All three runs are **live, end‑to‑end**: Kiln inference plus real XRPL Testn
 
 **What changes between runs, and how you can verify it:**
 - **R1 → R2 (new budget).** The sailor adds $3,000 with the same target and date. The amended charter is a new on‑chain record. helm re‑reads the vault's *on‑chain* holdings, finds it now needs fewer "knots", picks a calmer course and **tacks**: it sells crypto and buys T‑bills (the SELL rows above). Least risk that still gets there.
-- **R3 (goal can't be met).** 10× in 12 months with a 15% dip limit needs ~900%/yr, and every course has 0% odds. helm **declines**. **No money moves** (there is no `board` tx). The decline and the code‑computed counter‑offers are written on‑chain.
+- **R3 (goal can't be met).** It needs ~900%/yr, and every course has 0% odds. helm **declines**. **No money moves** (there is no `board` tx). The decline and the code‑computed counter‑offers are written on‑chain.
 
 ## 4. How the chain is used: what the agent reads, writes and settles
 
@@ -151,8 +152,8 @@ The testnet world (`npm run setup`) has four accounts. A **mint** tokenizes 9 as
 <!--/KILN-->
 
 - **Model.** The brief asks for `gpt-oss-120b`. On 2026‑09‑30 Kiln answers `404 model_not_found` for it, and `GET /v1/models` serves `qwen3-32b` and `deepseek-v4.1-flash`. helm probes `gpt-oss-120b` first and falls back to `qwen3-32b` (see `src/kiln.js`). Set `KILN_MODEL` to switch the moment it's served.
-- **Less inference by design.** Each voyage makes exactly **2 LLM calls**, with no agent loop. Qwen3's `/no_think` keeps reasoning tokens at ~1 per call. The 24,000 simulated voyages, the guard, trade sizing and all 7–9 chain transactions are code (0 tokens). A weekly "watch" can re‑run Prime in code and only wake the LLM when the plan changes (roadmap).
-- **Energy (stated assumption).** Kiln exposes no power telemetry. We report an **upper bound per call = FuriosaAI RNGD card TDP (180 W) × measured wall‑clock latency**, as if the card served only us (real batched serving is far lower). Latency is measured per call. The watt figure is an assumption, overridable with `NPU_WATTS`.
+- **Less inference by design.** Each voyage makes exactly **2 LLM calls**, with no agent loop. Qwen3's `/no_think` keeps reasoning tokens at ~1 per call. The Monte Carlo (24,000 voyages for the chart, plus the counter‑offer search on declines), the guard, trade sizing and all 7–9 chain transactions are code (0 tokens). A weekly "watch" can re‑run Prime in code and only wake the LLM when the plan changes (roadmap).
+- **Energy (stated assumption).** Kiln exposes no power telemetry. We report an **estimate per call = FuriosaAI RNGD card TDP (180 W) × measured wall‑clock latency**, assuming one 180 W card serves the call alone (batched serving shares that power across many requests, so real per‑request energy is lower; a multi‑card deployment would raise it proportionally). Latency is measured per call. The watt figure is an assumption, overridable with `NPU_WATTS`.
 
 ## 6. Agora Prime: why this is an agent, not a portfolio
 
@@ -176,6 +177,7 @@ Six rule‑based **captains** (`src/fleet.js`) sail 4½ years of real weekly pri
 ## 7. Built before vs. during the event
 
 - **Everything in this repository was written during the GWDC hackathon window (Sep 28–30, 2026)**: the engine, agent, chain layer, UI, video tooling, deck and README. No code was copied from earlier projects.
+- **Git history:** the repo was created at the event (Sep 30, 03:24 KST), the code was developed locally over the following hours and pushed in two commits (engine + UI, then proof + docs). There is no earlier history because there is no earlier code.
 - **Concept lineage (disclosed):** the idea of strategy "captains" competing, with a meta‑agent following the winners ("Agora Prime"), comes from the team's earlier product thinking. helm is a new implementation.
 - **Third‑party:** `xrpl` (npm), Google Fonts, the Kiln API, and Yahoo Finance weekly prices (snapshot in `data/market.json`, refetch with `npm run market`).
 
