@@ -1,0 +1,681 @@
+{
+  "id": "vmun3t268",
+  "text": "Good news — I got a bonus and I am adding $3,000. Same goal: $15,000, same date. I would rather sleep well now.",
+  "goal": {
+    "stake": 13000,
+    "target": 15000,
+    "deadline": "2029-09-30",
+    "maxDrawdown": 0.3,
+    "exclude": [
+      "DOG"
+    ],
+    "tone": "cautious"
+  },
+  "decision": {
+    "v": "vmun3t268",
+    "goal": {
+      "stake": 13000,
+      "target": 15000,
+      "deadline": "2029-09-30",
+      "maxDrawdown": 0.3,
+      "exclude": [
+        "DOG"
+      ],
+      "tone": "cautious"
+    },
+    "decision": "SAIL",
+    "sigma": 0.04,
+    "odds": 0.757,
+    "counters": {
+      "sameDeadline": {
+        "target": 17700,
+        "sigma": 0.18,
+        "odds": 0.5
+      },
+      "sameTarget": {
+        "deadline": "2030-01-02",
+        "sigma": 0.04,
+        "odds": 0.81
+      }
+    },
+    "lead": [
+      "tradewind",
+      "monsoon"
+    ],
+    "rules": {
+      "maxBreach": 0.2,
+      "minHit": 0.5,
+      "dust": 25,
+      "slippage": 0.02
+    },
+    "dataWeek": "2026-09-21"
+  },
+  "decisionHash": "b73ecae4ca93ad921a2ab2d59c906eac3e79586d765662cf75fc999c5ec1c388",
+  "nav": {
+    "headline": "Anchored course for peace of mind",
+    "message": "We'll take the Anchored course, giving you a 76% chance to reach your goal with no risk of a dip beyond 30%. This is the calmest option, matching your cautious tone and bonus boost.",
+    "why": "Anchored offers the lowest risk and aligns with your desire to sleep well, while still giving strong odds to reach your goal.",
+    "guard": [
+      "explanation said 82% — not a figure for this decision; corrected to 76%"
+    ]
+  },
+  "sea": {
+    "weeks": 157,
+    "multiple": 1.1538461538461537,
+    "requiredCagr": 0.048537627572370345,
+    "courses": [
+      {
+        "sigma": 0.04,
+        "backtest": {
+          "cagr": 0.05659503961124801,
+          "maxDD": 0.07309945249720784,
+          "multiple": 1.2811162904682762,
+          "tacks": 16
+        },
+        "pHit": 0.7573333333333333,
+        "pBreach": 0,
+        "p10": 1.1118313027164868,
+        "p50": 1.2050438723253023,
+        "p90": 1.3036111972642699,
+        "safe": true,
+        "viable": true
+      },
+      {
+        "sigma": 0.08,
+        "backtest": {
+          "cagr": 0.07465916431064112,
+          "maxDD": 0.1143525251612667,
+          "multiple": 1.3826694252720093,
+          "tacks": 16
+        },
+        "pHit": 0.817,
+        "pBreach": 0.0003333333333333333,
+        "p10": 1.1109944216677727,
+        "p50": 1.2693469667999442,
+        "p90": 1.4535035691421418,
+        "safe": true,
+        "viable": true
+      },
+      {
+        "sigma": 0.12,
+        "backtest": {
+          "cagr": 0.08845971092889449,
+          "maxDD": 0.12496152310150888,
+          "multiple": 1.4643861498153357,
+          "tacks": 16
+        },
+        "pHit": 0.8446666666666667,
+        "pBreach": 0.0003333333333333333,
+        "p10": 1.1122215980404886,
+        "p50": 1.311557136094388,
+        "p90": 1.5603592877694368,
+        "safe": true,
+        "viable": true
+      },
+      {
+        "sigma": 0.18,
+        "backtest": {
+          "cagr": 0.10423256347364984,
+          "maxDD": 0.13665213547305133,
+          "multiple": 1.5623289340977196,
+          "tacks": 16
+        },
+        "pHit": 0.8483333333333334,
+        "pBreach": 0.0003333333333333333,
+        "p10": 1.10392589813913,
+        "p50": 1.3621139783093086,
+        "p90": 1.7188250323047558,
+        "safe": true,
+        "viable": true
+      },
+      {
+        "sigma": 0.25,
+        "backtest": {
+          "cagr": 0.12201629778118006,
+          "maxDD": 0.15067645112290884,
+          "multiple": 1.678789498186597,
+          "tacks": 16
+        },
+        "pHit": 0.846,
+        "pBreach": 0.003,
+        "p10": 1.0882390035928085,
+        "p50": 1.4178339344698114,
+        "p90": 1.918799554336138,
+        "safe": true,
+        "viable": true
+      },
+      {
+        "sigma": 0.35,
+        "backtest": {
+          "cagr": 0.14883859312234482,
+          "maxDD": 0.16568738064019595,
+          "multiple": 1.8670913809030403,
+          "tacks": 16
+        },
+        "pHit": 0.8413333333333334,
+        "pBreach": 0.012333333333333333,
+        "p10": 1.0651313899419452,
+        "p50": 1.5007214163645561,
+        "p90": 2.2519126199296493,
+        "safe": true,
+        "viable": true
+      },
+      {
+        "sigma": 0.5,
+        "backtest": {
+          "cagr": 0.18848876310324036,
+          "maxDD": 0.1769196526674618,
+          "multiple": 2.1750931449414304,
+          "tacks": 16
+        },
+        "pHit": 0.8393333333333334,
+        "pBreach": 0.06433333333333334,
+        "p10": 1.0442119884521457,
+        "p50": 1.6372525033476564,
+        "p90": 2.8132063330794743,
+        "safe": true,
+        "viable": true
+      },
+      {
+        "sigma": 0.7,
+        "backtest": {
+          "cagr": 0.22511163539018364,
+          "maxDD": 0.20872819917472074,
+          "multiple": 2.4933915911723554,
+          "tacks": 16
+        },
+        "pHit": 0.8203333333333334,
+        "pBreach": 0.17933333333333334,
+        "p10": 0.9959597219121707,
+        "p50": 1.748386906779118,
+        "p90": 3.6162883592114885,
+        "safe": true,
+        "viable": true
+      }
+    ],
+    "viable": true,
+    "counters": {
+      "sameDeadline": {
+        "target": 17700,
+        "sigma": 0.18,
+        "odds": 0.5
+      },
+      "sameTarget": {
+        "deadline": "2030-01-02",
+        "sigma": 0.04,
+        "odds": 0.81
+      }
+    }
+  },
+  "charterTx": "9D58D0C63547518F9BCC2CD589E47BE663A3B1DD50C692F6BBDAB03DC6A764BE",
+  "fundingTx": "F98D501EA4C043A98E1D617423DB7DD976CB45952E6760CC5E2BB0403E3C5F3A",
+  "recordTx": "3E8D05C7BFDD969E83FB70351A118D148393FA1E018044E0BBE6D253E1B992DF",
+  "execution": {
+    "valueBefore": 13000.000000002005,
+    "trades": [
+      {
+        "v": "vmun3t268",
+        "a": "SELL",
+        "c": "ETH",
+        "usd": 1695.34,
+        "dh": "b73ecae4ca93ad92",
+        "asset": "Ether",
+        "qty": 0.630304675612,
+        "price": 2689.7078496191875,
+        "hash": "B0A3A730443803F83B6A21BE33C76FBDC2A5D10585F9481FB63A59C217C66703",
+        "result": "tesSUCCESS"
+      },
+      {
+        "v": "vmun3t268",
+        "a": "SELL",
+        "c": "BTC",
+        "usd": 1695.34,
+        "dh": "b73ecae4ca93ad92",
+        "asset": "Bitcoin",
+        "qty": 0.0200523431832,
+        "price": 84545.50264559503,
+        "hash": "AB3DF3E3CA8943773DA3CD7B7403EE93672E6E6DE0ADC225F44FE3AF690447FE",
+        "result": "tesSUCCESS"
+      },
+      {
+        "v": "vmun3t268",
+        "a": "SELL",
+        "c": "SOL",
+        "usd": 1695.34,
+        "dh": "b73ecae4ca93ad92",
+        "asset": "Solana",
+        "qty": 13.8751479826,
+        "price": 122.1850344058923,
+        "hash": "4462B1534452712CD88171A1CB60CAAB3AA3B5AB08C3F30837FF69F9D569D5E6",
+        "result": "tesSUCCESS"
+      },
+      {
+        "v": "vmun3t268",
+        "a": "BUY",
+        "c": "UST",
+        "usd": 8083.6,
+        "dh": "b73ecae4ca93ad92",
+        "asset": "US Treasury Bills",
+        "qty": 87.01513264175,
+        "price": 92.65712321815369,
+        "hash": "629181768627B89E37555551925593A217D9CFDADCBA808804684591671AD60B",
+        "result": "tesSUCCESS"
+      }
+    ]
+  },
+  "portfolio": {
+    "total": 13010.426117347268,
+    "rows": [
+      {
+        "code": "USD",
+        "qty": 2e-9,
+        "usd": 2e-9
+      },
+      {
+        "code": "UST",
+        "qty": 130.41677441495,
+        "usd": 12122.908560073598,
+        "price": 92.95513260818632
+      },
+      {
+        "code": "BTC",
+        "qty": 0.00350154206798,
+        "usd": 295.83918575571187,
+        "price": 84488.25689144958
+      },
+      {
+        "code": "ETH",
+        "qty": 0.11006386222,
+        "usd": 295.839185756185,
+        "price": 2687.8866486154184
+      },
+      {
+        "code": "SOL",
+        "qty": 2.42287965638,
+        "usd": 295.83918575977106,
+        "price": 122.10230292732797
+      }
+    ]
+  },
+  "kiln": [
+    {
+      "at": "2026-09-29T20:04:19.513Z",
+      "flow": "intake",
+      "model": "qwen3-32b",
+      "id": "chat-a9bb497d625c4b44b73e0549148f57c0",
+      "ms": 2396,
+      "prompt": 341,
+      "completion": 54,
+      "reasoning": 1,
+      "joulesMax": 431.3
+    },
+    {
+      "at": "2026-09-29T20:04:27.899Z",
+      "flow": "navigate",
+      "model": "qwen3-32b",
+      "id": "chat-6794498cfb1a4dc08a3a4ff3517b6775",
+      "ms": 3445,
+      "prompt": 854,
+      "completion": 126,
+      "reasoning": 1,
+      "joulesMax": 620.1
+    }
+  ],
+  "log": [
+    {
+      "type": "intake",
+      "at": 2396,
+      "goal": {
+        "stake": 13000,
+        "target": 15000,
+        "deadline": "2029-09-30",
+        "maxDrawdown": 0.3,
+        "exclude": [
+          "DOG"
+        ],
+        "tone": "cautious"
+      },
+      "call": {
+        "at": "2026-09-29T20:04:19.513Z",
+        "flow": "intake",
+        "model": "qwen3-32b",
+        "id": "chat-a9bb497d625c4b44b73e0549148f57c0",
+        "ms": 2396,
+        "prompt": 341,
+        "completion": 54,
+        "reasoning": 1,
+        "joulesMax": 431.3
+      }
+    },
+    {
+      "type": "charter",
+      "at": 7111,
+      "hash": "9D58D0C63547518F9BCC2CD589E47BE663A3B1DD50C692F6BBDAB03DC6A764BE",
+      "charter": {
+        "v": "vmun3t268",
+        "stake": 13000,
+        "target": 15000,
+        "by": "2029-09-30",
+        "dd": 0.3,
+        "ex": [
+          "DOG"
+        ],
+        "words": "1f6cedfdc40934a8"
+      }
+    },
+    {
+      "type": "read",
+      "at": 7263,
+      "from": "sailor logbook",
+      "hash": "9D58D0C63547518F9BCC2CD589E47BE663A3B1DD50C692F6BBDAB03DC6A764BE",
+      "ledger": 21151509
+    },
+    {
+      "type": "chart",
+      "at": 7337,
+      "sea": {
+        "weeks": 157,
+        "multiple": 1.1538461538461537,
+        "requiredCagr": 0.048537627572370345,
+        "courses": [
+          {
+            "sigma": 0.04,
+            "pHit": 0.7573333333333333,
+            "pBreach": 0,
+            "p10": 1.1118313027164868,
+            "p50": 1.2050438723253023,
+            "p90": 1.3036111972642699,
+            "safe": true,
+            "viable": true,
+            "backtest": {
+              "cagr": 0.05659503961124801,
+              "maxDD": 0.07309945249720784,
+              "multiple": 1.2811162904682762,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.08,
+            "pHit": 0.817,
+            "pBreach": 0.0003333333333333333,
+            "p10": 1.1109944216677727,
+            "p50": 1.2693469667999442,
+            "p90": 1.4535035691421418,
+            "safe": true,
+            "viable": true,
+            "backtest": {
+              "cagr": 0.07465916431064112,
+              "maxDD": 0.1143525251612667,
+              "multiple": 1.3826694252720093,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.12,
+            "pHit": 0.8446666666666667,
+            "pBreach": 0.0003333333333333333,
+            "p10": 1.1122215980404886,
+            "p50": 1.311557136094388,
+            "p90": 1.5603592877694368,
+            "safe": true,
+            "viable": true,
+            "backtest": {
+              "cagr": 0.08845971092889449,
+              "maxDD": 0.12496152310150888,
+              "multiple": 1.4643861498153357,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.18,
+            "pHit": 0.8483333333333334,
+            "pBreach": 0.0003333333333333333,
+            "p10": 1.10392589813913,
+            "p50": 1.3621139783093086,
+            "p90": 1.7188250323047558,
+            "safe": true,
+            "viable": true,
+            "backtest": {
+              "cagr": 0.10423256347364984,
+              "maxDD": 0.13665213547305133,
+              "multiple": 1.5623289340977196,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.25,
+            "pHit": 0.846,
+            "pBreach": 0.003,
+            "p10": 1.0882390035928085,
+            "p50": 1.4178339344698114,
+            "p90": 1.918799554336138,
+            "safe": true,
+            "viable": true,
+            "backtest": {
+              "cagr": 0.12201629778118006,
+              "maxDD": 0.15067645112290884,
+              "multiple": 1.678789498186597,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.35,
+            "pHit": 0.8413333333333334,
+            "pBreach": 0.012333333333333333,
+            "p10": 1.0651313899419452,
+            "p50": 1.5007214163645561,
+            "p90": 2.2519126199296493,
+            "safe": true,
+            "viable": true,
+            "backtest": {
+              "cagr": 0.14883859312234482,
+              "maxDD": 0.16568738064019595,
+              "multiple": 1.8670913809030403,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.5,
+            "pHit": 0.8393333333333334,
+            "pBreach": 0.06433333333333334,
+            "p10": 1.0442119884521457,
+            "p50": 1.6372525033476564,
+            "p90": 2.8132063330794743,
+            "safe": true,
+            "viable": true,
+            "backtest": {
+              "cagr": 0.18848876310324036,
+              "maxDD": 0.1769196526674618,
+              "multiple": 2.1750931449414304,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.7,
+            "pHit": 0.8203333333333334,
+            "pBreach": 0.17933333333333334,
+            "p10": 0.9959597219121707,
+            "p50": 1.748386906779118,
+            "p90": 3.6162883592114885,
+            "safe": true,
+            "viable": true,
+            "backtest": {
+              "cagr": 0.22511163539018364,
+              "maxDD": 0.20872819917472074,
+              "multiple": 2.4933915911723554,
+              "tacks": 16
+            }
+          }
+        ],
+        "viable": true,
+        "counters": {
+          "sameDeadline": {
+            "target": 17700,
+            "sigma": 0.18,
+            "odds": 0.5
+          },
+          "sameTarget": {
+            "deadline": "2030-01-02",
+            "sigma": 0.04,
+            "odds": 0.81
+          }
+        }
+      },
+      "wind": {
+        "lead": [
+          "tradewind",
+          "monsoon"
+        ],
+        "score": [
+          [
+            "tradewind",
+            0.16323836130249791
+          ],
+          [
+            "monsoon",
+            0.1506051499736787
+          ],
+          [
+            "corsair",
+            0.0975267139892586
+          ],
+          [
+            "harbor",
+            0.03339071430431262
+          ],
+          [
+            "lighthouse",
+            0.02340238318553456
+          ],
+          [
+            "ballast",
+            0.006149967154966518
+          ]
+        ],
+        "week": "2026-09-21"
+      }
+    },
+    {
+      "type": "navigate",
+      "at": 10782,
+      "decision": "SAIL",
+      "sigma": 0.04,
+      "headline": "Anchored course for peace of mind",
+      "message": "We'll take the Anchored course, giving you a 76% chance to reach your goal with no risk of a dip beyond 30%. This is the calmest option, matching your cautious tone and bonus boost.",
+      "why": "Anchored offers the lowest risk and aligns with your desire to sleep well, while still giving strong odds to reach your goal.",
+      "guard": [
+        "explanation said 82% — not a figure for this decision; corrected to 76%"
+      ],
+      "call": {
+        "at": "2026-09-29T20:04:27.899Z",
+        "flow": "navigate",
+        "model": "qwen3-32b",
+        "id": "chat-6794498cfb1a4dc08a3a4ff3517b6775",
+        "ms": 3445,
+        "prompt": 854,
+        "completion": 126,
+        "reasoning": 1,
+        "joulesMax": 620.1
+      }
+    },
+    {
+      "type": "board",
+      "at": 17747,
+      "hash": "F98D501EA4C043A98E1D617423DB7DD976CB45952E6760CC5E2BB0403E3C5F3A",
+      "usd": 3004.403526897995
+    },
+    {
+      "type": "plan",
+      "at": 17751,
+      "weights": {
+        "UST": 0.9316831613446515,
+        "KTB": 0,
+        "SPX": 0,
+        "RET": 0,
+        "GLD": 0,
+        "BTC": 0.022772279551782855,
+        "ETH": 0.022772279551782855,
+        "SOL": 0.022772279551782855,
+        "DOG": 0
+      },
+      "lead": [
+        "tradewind",
+        "monsoon"
+      ],
+      "exposure": 0.06831683865534857
+    },
+    {
+      "type": "trade",
+      "at": 25759,
+      "trade": {
+        "v": "vmun3t268",
+        "a": "SELL",
+        "c": "ETH",
+        "usd": 1695.34,
+        "dh": "b73ecae4ca93ad92",
+        "asset": "Ether",
+        "qty": 0.630304675612,
+        "price": 2689.7078496191875,
+        "hash": "B0A3A730443803F83B6A21BE33C76FBDC2A5D10585F9481FB63A59C217C66703",
+        "result": "tesSUCCESS"
+      }
+    },
+    {
+      "type": "trade",
+      "at": 32051,
+      "trade": {
+        "v": "vmun3t268",
+        "a": "SELL",
+        "c": "BTC",
+        "usd": 1695.34,
+        "dh": "b73ecae4ca93ad92",
+        "asset": "Bitcoin",
+        "qty": 0.0200523431832,
+        "price": 84545.50264559503,
+        "hash": "AB3DF3E3CA8943773DA3CD7B7403EE93672E6E6DE0ADC225F44FE3AF690447FE",
+        "result": "tesSUCCESS"
+      }
+    },
+    {
+      "type": "trade",
+      "at": 38344,
+      "trade": {
+        "v": "vmun3t268",
+        "a": "SELL",
+        "c": "SOL",
+        "usd": 1695.34,
+        "dh": "b73ecae4ca93ad92",
+        "asset": "Solana",
+        "qty": 13.8751479826,
+        "price": 122.1850344058923,
+        "hash": "4462B1534452712CD88171A1CB60CAAB3AA3B5AB08C3F30837FF69F9D569D5E6",
+        "result": "tesSUCCESS"
+      }
+    },
+    {
+      "type": "trade",
+      "at": 44637,
+      "trade": {
+        "v": "vmun3t268",
+        "a": "BUY",
+        "c": "UST",
+        "usd": 8083.6,
+        "dh": "b73ecae4ca93ad92",
+        "asset": "US Treasury Bills",
+        "qty": 87.01513264175,
+        "price": 92.65712321815369,
+        "hash": "629181768627B89E37555551925593A217D9CFDADCBA808804684591671AD60B",
+        "result": "tesSUCCESS"
+      }
+    },
+    {
+      "type": "record",
+      "at": 51762,
+      "hash": "3E8D05C7BFDD969E83FB70351A118D148393FA1E018044E0BBE6D253E1B992DF",
+      "decision": "SAIL",
+      "dh": "b73ecae4ca93ad921a2ab2d59c906eac3e79586d765662cf75fc999c5ec1c388"
+    }
+  ],
+  "ms": 52661,
+  "startedAt": "2026-09-29T20:04:17.117Z"
+}

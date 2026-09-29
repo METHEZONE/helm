@@ -1,0 +1,677 @@
+{
+  "id": "vmun3t268",
+  "text": "I have $10,000 saved. I want it to become $15,000 in 3 years. I can live with a 30% dip, but no memecoins please.",
+  "goal": {
+    "stake": 10000,
+    "target": 15000,
+    "deadline": "2029-09-30",
+    "maxDrawdown": 0.3,
+    "exclude": [
+      "DOG"
+    ],
+    "tone": "balanced"
+  },
+  "decision": {
+    "v": "vmun3t268",
+    "goal": {
+      "stake": 10000,
+      "target": 15000,
+      "deadline": "2029-09-30",
+      "maxDrawdown": 0.3,
+      "exclude": [
+        "DOG"
+      ],
+      "tone": "balanced"
+    },
+    "decision": "SAIL",
+    "sigma": 0.35,
+    "odds": 0.501,
+    "counters": {
+      "sameDeadline": {
+        "target": 17400,
+        "sigma": 0.7,
+        "odds": 0.5
+      },
+      "sameTarget": {
+        "deadline": "2030-01-02",
+        "sigma": 0.35,
+        "odds": 0.55
+      }
+    },
+    "lead": [
+      "tradewind",
+      "monsoon"
+    ],
+    "rules": {
+      "maxBreach": 0.2,
+      "minHit": 0.5,
+      "dust": 25,
+      "slippage": 0.02
+    },
+    "dataWeek": "2026-09-21"
+  },
+  "decisionHash": "3f09010dcdd9badd56607e526dbb3b9b1fb073d63f541a3eb350353670df1d48",
+  "nav": {
+    "headline": "Brisk course offers best balance for your goal",
+    "message": "The Brisk course gives you a 50% chance to reach $15,000 by 2029, with a 1% risk of a dip beyond 30%. It's the calmest viable option that aligns with your balanced tone and goal.",
+    "why": "Brisk offers the highest odds among viable courses without exceeding your dip limit.",
+    "guard": []
+  },
+  "sea": {
+    "weeks": 157,
+    "multiple": 1.5,
+    "requiredCagr": 0.1437292277743587,
+    "courses": [
+      {
+        "sigma": 0.04,
+        "backtest": {
+          "cagr": 0.05659503961124801,
+          "maxDD": 0.07309945249720784,
+          "multiple": 1.2811162904682762,
+          "tacks": 16
+        },
+        "pHit": 0.0006666666666666666,
+        "pBreach": 0,
+        "p10": 1.1118313027164868,
+        "p50": 1.2050438723253023,
+        "p90": 1.3036111972642699,
+        "safe": true,
+        "viable": false
+      },
+      {
+        "sigma": 0.08,
+        "backtest": {
+          "cagr": 0.07465916431064112,
+          "maxDD": 0.1143525251612667,
+          "multiple": 1.3826694252720093,
+          "tacks": 16
+        },
+        "pHit": 0.06233333333333333,
+        "pBreach": 0.0003333333333333333,
+        "p10": 1.1109944216677727,
+        "p50": 1.2693469667999442,
+        "p90": 1.4535035691421418,
+        "safe": true,
+        "viable": false
+      },
+      {
+        "sigma": 0.12,
+        "backtest": {
+          "cagr": 0.08845971092889449,
+          "maxDD": 0.12496152310150888,
+          "multiple": 1.4643861498153357,
+          "tacks": 16
+        },
+        "pHit": 0.16466666666666666,
+        "pBreach": 0.0003333333333333333,
+        "p10": 1.1122215980404886,
+        "p50": 1.311557136094388,
+        "p90": 1.5603592877694368,
+        "safe": true,
+        "viable": false
+      },
+      {
+        "sigma": 0.18,
+        "backtest": {
+          "cagr": 0.10423256347364984,
+          "maxDD": 0.13665213547305133,
+          "multiple": 1.5623289340977196,
+          "tacks": 16
+        },
+        "pHit": 0.28833333333333333,
+        "pBreach": 0.0003333333333333333,
+        "p10": 1.10392589813913,
+        "p50": 1.3621139783093086,
+        "p90": 1.7188250323047558,
+        "safe": true,
+        "viable": false
+      },
+      {
+        "sigma": 0.25,
+        "backtest": {
+          "cagr": 0.12201629778118006,
+          "maxDD": 0.15067645112290884,
+          "multiple": 1.678789498186597,
+          "tacks": 16
+        },
+        "pHit": 0.3923333333333333,
+        "pBreach": 0.003,
+        "p10": 1.0882390035928085,
+        "p50": 1.4178339344698114,
+        "p90": 1.918799554336138,
+        "safe": true,
+        "viable": false
+      },
+      {
+        "sigma": 0.35,
+        "backtest": {
+          "cagr": 0.14883859312234482,
+          "maxDD": 0.16568738064019595,
+          "multiple": 1.8670913809030403,
+          "tacks": 16
+        },
+        "pHit": 0.501,
+        "pBreach": 0.012333333333333333,
+        "p10": 1.0651313899419452,
+        "p50": 1.5007214163645561,
+        "p90": 2.2519126199296493,
+        "safe": true,
+        "viable": true
+      },
+      {
+        "sigma": 0.5,
+        "backtest": {
+          "cagr": 0.18848876310324036,
+          "maxDD": 0.1769196526674618,
+          "multiple": 2.1750931449414304,
+          "tacks": 16
+        },
+        "pHit": 0.5896666666666667,
+        "pBreach": 0.06433333333333334,
+        "p10": 1.0442119884521457,
+        "p50": 1.6372525033476564,
+        "p90": 2.8132063330794743,
+        "safe": true,
+        "viable": true
+      },
+      {
+        "sigma": 0.7,
+        "backtest": {
+          "cagr": 0.22511163539018364,
+          "maxDD": 0.20872819917472074,
+          "multiple": 2.4933915911723554,
+          "tacks": 16
+        },
+        "pHit": 0.622,
+        "pBreach": 0.17933333333333334,
+        "p10": 0.9959597219121707,
+        "p50": 1.748386906779118,
+        "p90": 3.6162883592114885,
+        "safe": true,
+        "viable": true
+      }
+    ],
+    "viable": true,
+    "counters": {
+      "sameDeadline": {
+        "target": 17400,
+        "sigma": 0.7,
+        "odds": 0.5
+      },
+      "sameTarget": {
+        "deadline": "2030-01-02",
+        "sigma": 0.35,
+        "odds": 0.55
+      }
+    }
+  },
+  "charterTx": "2FF5062E86D797F292A9D41DF141EB135A4778F4C2B16D54A639917889D31521",
+  "fundingTx": "DB506B60ECFC0E592D2571D9EC6AB55FA70391103D530B31F059F1AEA72F12AF",
+  "recordTx": "839DA36DDC86E1A059C328758E60B13172FFCCFE97E5403B7146A099F9582DAE",
+  "execution": {
+    "valueBefore": 10000,
+    "trades": [
+      {
+        "v": "vmun3t268",
+        "a": "BUY",
+        "c": "BTC",
+        "usd": 1992.57,
+        "dh": "3f09010dcdd9badd",
+        "asset": "Bitcoin",
+        "qty": 0.02355388525118,
+        "price": 84478.19933225353,
+        "hash": "2735AC02B25B62310822B52C73A81D0ACE9F33F4CA4BD5348BE75C728FD58F8A",
+        "result": "tesSUCCESS"
+      },
+      {
+        "v": "vmun3t268",
+        "a": "BUY",
+        "c": "ETH",
+        "usd": 1992.57,
+        "dh": "3f09010dcdd9badd",
+        "asset": "Ether",
+        "qty": 0.740368537832,
+        "price": 2687.566680136064,
+        "hash": "B538A7FC8FBA9D856A11D1B8A393CC87CDE0D5B832D3151B2B83B57AB93C791C",
+        "result": "tesSUCCESS"
+      },
+      {
+        "v": "vmun3t268",
+        "a": "BUY",
+        "c": "SOL",
+        "usd": 1992.57,
+        "dh": "3f09010dcdd9badd",
+        "asset": "Solana",
+        "qty": 16.29802763898,
+        "price": 122.08776775776872,
+        "hash": "D6DA88019DA0B61278E5D9A1AF475A88BA396096583A44B3ED629EFFE00160A8",
+        "result": "tesSUCCESS"
+      },
+      {
+        "v": "vmun3t268",
+        "a": "BUY",
+        "c": "UST",
+        "usd": 4022.28,
+        "dh": "3f09010dcdd9badd",
+        "asset": "US Treasury Bills",
+        "qty": 43.4016417732,
+        "price": 92.5090165607691,
+        "hash": "C82C5F05315642F4BCFBFC3B9E6AB835A30D30063CEC3E04E73FD2153812DF82",
+        "result": "tesSUCCESS"
+      }
+    ]
+  },
+  "portfolio": {
+    "total": 9995.596473102005,
+    "rows": [
+      {
+        "code": "USD",
+        "qty": 0,
+        "usd": 0
+      },
+      {
+        "code": "UST",
+        "qty": 43.4016417732,
+        "usd": 4021.4712696495585,
+        "price": 92.65712321815369
+      },
+      {
+        "code": "BTC",
+        "qty": 0.02355388525118,
+        "usd": 1991.3750678176805,
+        "price": 84545.50264559503
+      },
+      {
+        "code": "ETH",
+        "qty": 0.740368537832,
+        "usd": 1991.3750678178108,
+        "price": 2689.7078496191875
+      },
+      {
+        "code": "SOL",
+        "qty": 16.29802763898,
+        "usd": 1991.3750678169547,
+        "price": 122.1850344058923
+      }
+    ]
+  },
+  "kiln": [
+    {
+      "at": "2026-09-29T20:03:20.562Z",
+      "flow": "intake",
+      "model": "qwen3-32b",
+      "id": "chat-fbcffccd6e614f0abf12c80a60a8c70d",
+      "ms": 1758,
+      "prompt": 299,
+      "completion": 73,
+      "reasoning": 1,
+      "joulesMax": 316.4
+    },
+    {
+      "at": "2026-09-29T20:03:29.660Z",
+      "flow": "navigate",
+      "model": "qwen3-32b",
+      "id": "chat-77113a04e12f434f80fec733c06087c0",
+      "ms": 3564,
+      "prompt": 848,
+      "completion": 128,
+      "reasoning": 1,
+      "joulesMax": 641.5
+    }
+  ],
+  "log": [
+    {
+      "type": "intake",
+      "at": 3600,
+      "goal": {
+        "stake": 10000,
+        "target": 15000,
+        "deadline": "2029-09-30",
+        "maxDrawdown": 0.3,
+        "exclude": [
+          "DOG"
+        ],
+        "tone": "balanced"
+      },
+      "call": {
+        "at": "2026-09-29T20:03:20.562Z",
+        "flow": "intake",
+        "model": "qwen3-32b",
+        "id": "chat-fbcffccd6e614f0abf12c80a60a8c70d",
+        "ms": 1758,
+        "prompt": 299,
+        "completion": 73,
+        "reasoning": 1,
+        "joulesMax": 316.4
+      }
+    },
+    {
+      "type": "charter",
+      "at": 8890,
+      "hash": "2FF5062E86D797F292A9D41DF141EB135A4778F4C2B16D54A639917889D31521",
+      "charter": {
+        "v": "vmun3t268",
+        "stake": 10000,
+        "target": 15000,
+        "by": "2029-09-30",
+        "dd": 0.3,
+        "ex": [
+          "DOG"
+        ],
+        "words": "762c045196601658"
+      }
+    },
+    {
+      "type": "read",
+      "at": 9042,
+      "from": "sailor logbook",
+      "hash": "2FF5062E86D797F292A9D41DF141EB135A4778F4C2B16D54A639917889D31521",
+      "ledger": 21151491
+    },
+    {
+      "type": "chart",
+      "at": 9126,
+      "sea": {
+        "weeks": 157,
+        "multiple": 1.5,
+        "requiredCagr": 0.1437292277743587,
+        "courses": [
+          {
+            "sigma": 0.04,
+            "pHit": 0.0006666666666666666,
+            "pBreach": 0,
+            "p10": 1.1118313027164868,
+            "p50": 1.2050438723253023,
+            "p90": 1.3036111972642699,
+            "safe": true,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.05659503961124801,
+              "maxDD": 0.07309945249720784,
+              "multiple": 1.2811162904682762,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.08,
+            "pHit": 0.06233333333333333,
+            "pBreach": 0.0003333333333333333,
+            "p10": 1.1109944216677727,
+            "p50": 1.2693469667999442,
+            "p90": 1.4535035691421418,
+            "safe": true,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.07465916431064112,
+              "maxDD": 0.1143525251612667,
+              "multiple": 1.3826694252720093,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.12,
+            "pHit": 0.16466666666666666,
+            "pBreach": 0.0003333333333333333,
+            "p10": 1.1122215980404886,
+            "p50": 1.311557136094388,
+            "p90": 1.5603592877694368,
+            "safe": true,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.08845971092889449,
+              "maxDD": 0.12496152310150888,
+              "multiple": 1.4643861498153357,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.18,
+            "pHit": 0.28833333333333333,
+            "pBreach": 0.0003333333333333333,
+            "p10": 1.10392589813913,
+            "p50": 1.3621139783093086,
+            "p90": 1.7188250323047558,
+            "safe": true,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.10423256347364984,
+              "maxDD": 0.13665213547305133,
+              "multiple": 1.5623289340977196,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.25,
+            "pHit": 0.3923333333333333,
+            "pBreach": 0.003,
+            "p10": 1.0882390035928085,
+            "p50": 1.4178339344698114,
+            "p90": 1.918799554336138,
+            "safe": true,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.12201629778118006,
+              "maxDD": 0.15067645112290884,
+              "multiple": 1.678789498186597,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.35,
+            "pHit": 0.501,
+            "pBreach": 0.012333333333333333,
+            "p10": 1.0651313899419452,
+            "p50": 1.5007214163645561,
+            "p90": 2.2519126199296493,
+            "safe": true,
+            "viable": true,
+            "backtest": {
+              "cagr": 0.14883859312234482,
+              "maxDD": 0.16568738064019595,
+              "multiple": 1.8670913809030403,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.5,
+            "pHit": 0.5896666666666667,
+            "pBreach": 0.06433333333333334,
+            "p10": 1.0442119884521457,
+            "p50": 1.6372525033476564,
+            "p90": 2.8132063330794743,
+            "safe": true,
+            "viable": true,
+            "backtest": {
+              "cagr": 0.18848876310324036,
+              "maxDD": 0.1769196526674618,
+              "multiple": 2.1750931449414304,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.7,
+            "pHit": 0.622,
+            "pBreach": 0.17933333333333334,
+            "p10": 0.9959597219121707,
+            "p50": 1.748386906779118,
+            "p90": 3.6162883592114885,
+            "safe": true,
+            "viable": true,
+            "backtest": {
+              "cagr": 0.22511163539018364,
+              "maxDD": 0.20872819917472074,
+              "multiple": 2.4933915911723554,
+              "tacks": 16
+            }
+          }
+        ],
+        "viable": true,
+        "counters": {
+          "sameDeadline": {
+            "target": 17400,
+            "sigma": 0.7,
+            "odds": 0.5
+          },
+          "sameTarget": {
+            "deadline": "2030-01-02",
+            "sigma": 0.35,
+            "odds": 0.55
+          }
+        }
+      },
+      "wind": {
+        "lead": [
+          "tradewind",
+          "monsoon"
+        ],
+        "score": [
+          [
+            "tradewind",
+            0.16323836130249791
+          ],
+          [
+            "monsoon",
+            0.1506051499736787
+          ],
+          [
+            "corsair",
+            0.0975267139892586
+          ],
+          [
+            "harbor",
+            0.03339071430431262
+          ],
+          [
+            "lighthouse",
+            0.02340238318553456
+          ],
+          [
+            "ballast",
+            0.006149967154966518
+          ]
+        ],
+        "week": "2026-09-21"
+      }
+    },
+    {
+      "type": "navigate",
+      "at": 12698,
+      "decision": "SAIL",
+      "sigma": 0.35,
+      "headline": "Brisk course offers best balance for your goal",
+      "message": "The Brisk course gives you a 50% chance to reach $15,000 by 2029, with a 1% risk of a dip beyond 30%. It's the calmest viable option that aligns with your balanced tone and goal.",
+      "why": "Brisk offers the highest odds among viable courses without exceeding your dip limit.",
+      "guard": [],
+      "call": {
+        "at": "2026-09-29T20:03:29.660Z",
+        "flow": "navigate",
+        "model": "qwen3-32b",
+        "id": "chat-77113a04e12f434f80fec733c06087c0",
+        "ms": 3564,
+        "prompt": 848,
+        "completion": 128,
+        "reasoning": 1,
+        "joulesMax": 641.5
+      }
+    },
+    {
+      "type": "board",
+      "at": 19316,
+      "hash": "DB506B60ECFC0E592D2571D9EC6AB55FA70391103D530B31F059F1AEA72F12AF",
+      "usd": 10000
+    },
+    {
+      "type": "plan",
+      "at": 19320,
+      "weights": {
+        "UST": 0.4022276617657,
+        "KTB": 0,
+        "SPX": 0,
+        "RET": 0,
+        "GLD": 0,
+        "BTC": 0.19925744607809998,
+        "ETH": 0.19925744607809998,
+        "SOL": 0.19925744607809998,
+        "DOG": 0
+      },
+      "lead": [
+        "tradewind",
+        "monsoon"
+      ],
+      "exposure": 0.5977723382343
+    },
+    {
+      "type": "trade",
+      "at": 29226,
+      "trade": {
+        "v": "vmun3t268",
+        "a": "BUY",
+        "c": "BTC",
+        "usd": 1992.57,
+        "dh": "3f09010dcdd9badd",
+        "asset": "Bitcoin",
+        "qty": 0.02355388525118,
+        "price": 84478.19933225353,
+        "hash": "2735AC02B25B62310822B52C73A81D0ACE9F33F4CA4BD5348BE75C728FD58F8A",
+        "result": "tesSUCCESS"
+      }
+    },
+    {
+      "type": "trade",
+      "at": 35285,
+      "trade": {
+        "v": "vmun3t268",
+        "a": "BUY",
+        "c": "ETH",
+        "usd": 1992.57,
+        "dh": "3f09010dcdd9badd",
+        "asset": "Ether",
+        "qty": 0.740368537832,
+        "price": 2687.566680136064,
+        "hash": "B538A7FC8FBA9D856A11D1B8A393CC87CDE0D5B832D3151B2B83B57AB93C791C",
+        "result": "tesSUCCESS"
+      }
+    },
+    {
+      "type": "trade",
+      "at": 42965,
+      "trade": {
+        "v": "vmun3t268",
+        "a": "BUY",
+        "c": "SOL",
+        "usd": 1992.57,
+        "dh": "3f09010dcdd9badd",
+        "asset": "Solana",
+        "qty": 16.29802763898,
+        "price": 122.08776775776872,
+        "hash": "D6DA88019DA0B61278E5D9A1AF475A88BA396096583A44B3ED629EFFE00160A8",
+        "result": "tesSUCCESS"
+      }
+    },
+    {
+      "type": "trade",
+      "at": 47867,
+      "trade": {
+        "v": "vmun3t268",
+        "a": "BUY",
+        "c": "UST",
+        "usd": 4022.28,
+        "dh": "3f09010dcdd9badd",
+        "asset": "US Treasury Bills",
+        "qty": 43.4016417732,
+        "price": 92.5090165607691,
+        "hash": "C82C5F05315642F4BCFBFC3B9E6AB835A30D30063CEC3E04E73FD2153812DF82",
+        "result": "tesSUCCESS"
+      }
+    },
+    {
+      "type": "record",
+      "at": 51165,
+      "hash": "839DA36DDC86E1A059C328758E60B13172FFCCFE97E5403B7146A099F9582DAE",
+      "decision": "SAIL",
+      "dh": "3f09010dcdd9badd56607e526dbb3b9b1fb073d63f541a3eb350353670df1d48"
+    }
+  ],
+  "ms": 52061,
+  "startedAt": "2026-09-29T20:03:16.962Z"
+}

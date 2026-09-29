@@ -11,13 +11,14 @@ async function raw(m, messages, max_tokens) {
     method: 'POST',
     headers: { Authorization: 'Bearer ' + cfg.kilnKey, 'Content-Type': 'application/json' },
     body: JSON.stringify({ model: m, messages, max_tokens, temperature: 0 }),
+    signal: AbortSignal.timeout(45000), // a hung socket must not freeze a voyage; ask() retries
   });
   return { status: r.status, body: await r.json().catch(() => ({})), ms: Date.now() - t0 };
 }
 
 export async function activeModel() {
   if (model) return model;
-  const probe = await raw(cfg.kilnModel, [{ role: 'user', content: 'ping' }], 1);
+  const probe = await raw(cfg.kilnModel, [{ role: 'user', content: 'ping' }], 1).catch((e) => ({ status: 0, body: { error: { code: String(e.cause?.code || e.name) } } }));
   model = probe.status === 200 ? cfg.kilnModel : cfg.kilnFallback;
   if (model !== cfg.kilnModel) console.warn(`[kiln] ${cfg.kilnModel} → HTTP ${probe.status} ${probe.body?.error?.code || ''}; using ${model}`);
   return model;

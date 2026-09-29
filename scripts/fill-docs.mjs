@@ -60,7 +60,7 @@ const rows = V.map((v, i) => {
   return `<tr><td><b>R${i + 1}</b></td><td style="font-size:21px;max-width:560px">“${v.text}”</td><td style="font-size:22px">${did}</td><td class="mono" style="font-size:19px">${n} txs · ${v.recordTx.slice(0, 10)}…</td></tr>`;
 }).join('\n');
 deck = deck.replace(/<tbody id="runs">[\s\S]*?<\/tbody>/, `<tbody id="runs">\n${rows}\n</tbody>`);
-const kc = Object.entries(flows).map(([k, f]) => `<div class="card"><h3>${k}</h3><p><b>${f.calls}</b> calls · ${f.p + f.c} tokens · ${Math.round(f.ms / f.calls)} ms avg · ≤${f.j.toFixed(0)} J</p></div>`).join('') + `<div class="card"><h3>code + chain</h3><p>24,000 simulated voyages, guard, sizing, every swap and record: <b>0 tokens</b>.</p></div>`;
+const kc = Object.entries(flows).map(([k, f]) => `<div class="card"><h3>${k}</h3><p><b>${f.calls}</b> calls · ${(f.p + f.c).toLocaleString()} tokens · ${(f.ms / f.calls / 1000).toFixed(1)} s avg · ≤${(f.j / 1000).toFixed(1)} kJ</p></div>`).join('') + `<div class="card"><h3>code + chain</h3><p>24,000 simulated voyages, guard, sizing, every swap and record: <b>0 tokens</b>.</p></div>`;
 deck = deck.replace(/<div class="grid g3" style="margin-top:34px" id="kiln">[\s\S]*?<\/div>\n  <div class="brand">/, `<div class="grid g3" style="margin-top:34px" id="kiln">${kc}</div>\n  <div class="brand">`);
 fs.writeFileSync('docs/deck/deck.html', deck);
 console.log('filled', V.length, 'runs;', T.calls, 'kiln calls');

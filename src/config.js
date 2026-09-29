@@ -1,5 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import net from 'node:net';
+import dns from 'node:dns';
+// Kiln sits behind a Cloudflare edge that can take >250 ms to accept; Node's happy-eyeballs
+// gives each address only 250 ms and then fails with ETIMEDOUT. Prefer IPv4, one patient attempt.
+dns.setDefaultResultOrder('ipv4first');
+net.setDefaultAutoSelectFamily(false);
 export const root = path.resolve(import.meta.dirname, '..');
 try { // tiny .env loader, no dependency
   for (const line of fs.readFileSync(path.join(root, '.env'), 'utf8').split('\n')) {

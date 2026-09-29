@@ -82,7 +82,19 @@ WIND: Prime follows ${wind.lead.map((id) => CAPTAINS.find((c) => c.id === id).na
   if (decision === 'SAIL' && !sea.viable) { decision = 'DECLINE'; guard.push('model chose SAIL but no course is viable → DECLINE'); }
   if (decision === 'SAIL' && !course?.viable) { course = sea.courses.filter((c) => c.viable).sort((a, b) => a.sigma - b.sigma)[0]; guard.push(`model's course σ${d.sigma} not viable → calmest viable σ${course.sigma}`); }
   if (decision === 'DECLINE' && sea.viable) guard.push('model declined although a viable course exists (allowed: declining is always safe)');
-  return { decision, course: decision === 'SAIL' ? course : null, headline: d.headline || '', message: d.message || '', why: d.why || '', guard, call };
+  // The explanation is guarded too: every % the model tells the person must be a real figure for
+  // the decision taken (models happily borrow another course's odds). Anything else is corrected.
+  const chosen = decision === 'SAIL' ? course : null;
+  const pc = (x) => Math.round(x * 100);
+  const allowed = new Set([pc(goal.maxDrawdown), pc(sea.requiredCagr), ...(chosen ? [pc(chosen.pHit), pc(chosen.pBreach)] : [0, ...sea.courses.map((c) => pc(c.pHit)), ...Object.values(sea.counters).map((c) => pc(c.odds))])]);
+  const fix = (t) => String(t || '').replace(/(\d+(?:\.\d+)?)\s?%/g, (m, n) => {
+    if (allowed.has(Math.round(+n))) return m;
+    const to = chosen ? pc(chosen.pHit) : 0;
+    guard.push(`explanation said ${n}% — not a figure for this decision; corrected to ${to}%`);
+    return `${to}%`;
+  });
+  const fixA = (t) => fix(t).replace(/\ban (?=(?:[0-79]|1[02-79])\d?%)/g, 'a '); // "an 82%" → "a 76%"
+  return { decision, course: chosen, headline: fixA(d.headline), message: fixA(d.message), why: fixA(d.why), guard, call };
 }
 
 // ---- code: trim the sails (turn target weights into swaps) ------------------------------------

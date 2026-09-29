@@ -1,0 +1,512 @@
+{
+  "id": "vmun3vn3w",
+  "text": "Turn $10,000 into $100,000 by next October. I cannot stomach losing more than 15%.",
+  "goal": {
+    "stake": 10000,
+    "target": 100000,
+    "deadline": "2027-09-30",
+    "maxDrawdown": 0.15,
+    "exclude": [],
+    "tone": "bold"
+  },
+  "decision": {
+    "v": "vmun3vn3w",
+    "goal": {
+      "stake": 10000,
+      "target": 100000,
+      "deadline": "2027-09-30",
+      "maxDrawdown": 0.15,
+      "exclude": [],
+      "tone": "bold"
+    },
+    "decision": "DECLINE",
+    "sigma": null,
+    "odds": null,
+    "counters": {
+      "sameDeadline": {
+        "target": 10600,
+        "sigma": 0.04,
+        "odds": 0.5
+      }
+    },
+    "lead": [
+      "tradewind",
+      "monsoon"
+    ],
+    "rules": {
+      "maxBreach": 0.2,
+      "minHit": 0.5,
+      "dust": 25,
+      "slippage": 0.02
+    },
+    "dataWeek": "2026-09-21"
+  },
+  "decisionHash": "3b70dd7a5414d768f0753e58ff72cab23a60455eb1db42ca951afedd31330f6b",
+  "nav": {
+    "headline": "Goal too ambitious for your risk limit",
+    "message": "Reaching $100,000 from $10,000 by next October would require a 900% annual return, which is not achievable with any viable course while staying within your 15% dip limit. A more realistic target, like $10,600, has a 50% chance of success with a low-risk course.",
+    "why": "None of the available courses can meet the required return without exceeding your 15% dip limit.",
+    "guard": []
+  },
+  "sea": {
+    "weeks": 52,
+    "multiple": 10,
+    "requiredCagr": 9,
+    "courses": [
+      {
+        "sigma": 0.04,
+        "backtest": {
+          "cagr": 0.057822729715142795,
+          "maxDD": 0.07974349942492298,
+          "multiple": 1.2878284813306446,
+          "tacks": 16
+        },
+        "pHit": 0,
+        "pBreach": 0,
+        "p10": 1.0096371919397675,
+        "p50": 1.0652741332044509,
+        "p90": 1.1189333502159888,
+        "safe": true,
+        "viable": false
+      },
+      {
+        "sigma": 0.08,
+        "backtest": {
+          "cagr": 0.07694762053999615,
+          "maxDD": 0.12707243468297835,
+          "multiple": 1.3959684876649823,
+          "tacks": 16
+        },
+        "pHit": 0,
+        "pBreach": 0.006,
+        "p10": 0.9876808201599833,
+        "p50": 1.0846672025770812,
+        "p90": 1.1834185902741479,
+        "safe": true,
+        "viable": false
+      },
+      {
+        "sigma": 0.12,
+        "backtest": {
+          "cagr": 0.09163890393099328,
+          "maxDD": 0.1438441974278023,
+          "multiple": 1.4837321975962685,
+          "tacks": 16
+        },
+        "pHit": 0,
+        "pBreach": 0.017666666666666667,
+        "p10": 0.973163215265953,
+        "p50": 1.0951316405398066,
+        "p90": 1.234406019136647,
+        "safe": true,
+        "viable": false
+      },
+      {
+        "sigma": 0.18,
+        "backtest": {
+          "cagr": 0.10839851063588868,
+          "maxDD": 0.16466741630371262,
+          "multiple": 1.5890285526684471,
+          "tacks": 16
+        },
+        "pHit": 0,
+        "pBreach": 0.056,
+        "p10": 0.9511587355090301,
+        "p50": 1.1045740234235297,
+        "p90": 1.3110683613010718,
+        "safe": true,
+        "viable": false
+      },
+      {
+        "sigma": 0.25,
+        "backtest": {
+          "cagr": 0.12668879031819258,
+          "maxDD": 0.18937600876857874,
+          "multiple": 1.7104795273439048,
+          "tacks": 16
+        },
+        "pHit": 0,
+        "pBreach": 0.14133333333333334,
+        "p10": 0.9234970579892561,
+        "p50": 1.1111886631666834,
+        "p90": 1.4066597334942454,
+        "safe": true,
+        "viable": false
+      },
+      {
+        "sigma": 0.35,
+        "backtest": {
+          "cagr": 0.1547088573818689,
+          "maxDD": 0.21475661418633762,
+          "multiple": 1.9104084798789964,
+          "tacks": 16
+        },
+        "pHit": 0,
+        "pBreach": 0.287,
+        "p10": 0.8873702819492798,
+        "p50": 1.1234108816818247,
+        "p90": 1.5509211667067446,
+        "safe": false,
+        "viable": false
+      },
+      {
+        "sigma": 0.5,
+        "backtest": {
+          "cagr": 0.19743147798191485,
+          "maxDD": 0.23279672025925013,
+          "multiple": 2.249717662439069,
+          "tacks": 16
+        },
+        "pHit": 0,
+        "pBreach": 0.5183333333333333,
+        "p10": 0.8397850843488971,
+        "p50": 1.1402776383846451,
+        "p90": 1.7814202460922084,
+        "safe": false,
+        "viable": false
+      },
+      {
+        "sigma": 0.7,
+        "backtest": {
+          "cagr": 0.2390050000123498,
+          "maxDD": 0.280593201923236,
+          "multiple": 2.6231840645746254,
+          "tacks": 16
+        },
+        "pHit": 0.0003333333333333333,
+        "pBreach": 0.7343333333333333,
+        "p10": 0.7904911790769775,
+        "p50": 1.1409015911019993,
+        "p90": 2.086572632563976,
+        "safe": false,
+        "viable": false
+      }
+    ],
+    "viable": false,
+    "counters": {
+      "sameDeadline": {
+        "target": 10600,
+        "sigma": 0.04,
+        "odds": 0.5
+      }
+    }
+  },
+  "charterTx": "F414F8D9EED786A3472EA02E3BB5C16615AD67CB89C1B19B1005672E7FAA3B66",
+  "fundingTx": null,
+  "recordTx": "BD08D81FE39FE63B95D8DAEDAF63F1F18DFE93CB6C9D9E11C3BCFFE457213CBD",
+  "execution": null,
+  "portfolio": {
+    "total": 13010.426117347268,
+    "rows": [
+      {
+        "code": "USD",
+        "qty": 2e-9,
+        "usd": 2e-9
+      },
+      {
+        "code": "UST",
+        "qty": 130.41677441495,
+        "usd": 12122.908560073598,
+        "price": 92.95513260818632
+      },
+      {
+        "code": "BTC",
+        "qty": 0.00350154206798,
+        "usd": 295.83918575571187,
+        "price": 84488.25689144958
+      },
+      {
+        "code": "ETH",
+        "qty": 0.11006386222,
+        "usd": 295.839185756185,
+        "price": 2687.8866486154184
+      },
+      {
+        "code": "SOL",
+        "qty": 2.42287965638,
+        "usd": 295.83918575977106,
+        "price": 122.10230292732797
+      }
+    ]
+  },
+  "kiln": [
+    {
+      "at": "2026-09-29T20:05:20.111Z",
+      "flow": "intake",
+      "model": "qwen3-32b",
+      "id": "chat-9a785284c2b24ea8b8dad21ec8809b19",
+      "ms": 2731,
+      "prompt": 285,
+      "completion": 58,
+      "reasoning": 1,
+      "joulesMax": 491.6
+    },
+    {
+      "at": "2026-09-29T20:05:34.601Z",
+      "flow": "navigate",
+      "model": "qwen3-32b",
+      "id": "chat-8ac0f164af4c41d6bc737c8907f5fffa",
+      "ms": 3118,
+      "prompt": 790,
+      "completion": 148,
+      "reasoning": 1,
+      "joulesMax": 561.2
+    }
+  ],
+  "log": [
+    {
+      "type": "intake",
+      "at": 2731,
+      "goal": {
+        "stake": 10000,
+        "target": 100000,
+        "deadline": "2027-09-30",
+        "maxDrawdown": 0.15,
+        "exclude": [],
+        "tone": "bold"
+      },
+      "call": {
+        "at": "2026-09-29T20:05:20.111Z",
+        "flow": "intake",
+        "model": "qwen3-32b",
+        "id": "chat-9a785284c2b24ea8b8dad21ec8809b19",
+        "ms": 2731,
+        "prompt": 285,
+        "completion": 58,
+        "reasoning": 1,
+        "joulesMax": 491.6
+      }
+    },
+    {
+      "type": "charter",
+      "at": 8926,
+      "hash": "F414F8D9EED786A3472EA02E3BB5C16615AD67CB89C1B19B1005672E7FAA3B66",
+      "charter": {
+        "v": "vmun3vn3w",
+        "stake": 10000,
+        "target": 100000,
+        "by": "2027-09-30",
+        "dd": 0.15,
+        "ex": [],
+        "words": "283fb604e9810426"
+      }
+    },
+    {
+      "type": "read",
+      "at": 9079,
+      "from": "sailor logbook",
+      "hash": "F414F8D9EED786A3472EA02E3BB5C16615AD67CB89C1B19B1005672E7FAA3B66",
+      "ledger": 21151527
+    },
+    {
+      "type": "chart",
+      "at": 14102,
+      "sea": {
+        "weeks": 52,
+        "multiple": 10,
+        "requiredCagr": 9,
+        "courses": [
+          {
+            "sigma": 0.04,
+            "pHit": 0,
+            "pBreach": 0,
+            "p10": 1.0096371919397675,
+            "p50": 1.0652741332044509,
+            "p90": 1.1189333502159888,
+            "safe": true,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.057822729715142795,
+              "maxDD": 0.07974349942492298,
+              "multiple": 1.2878284813306446,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.08,
+            "pHit": 0,
+            "pBreach": 0.006,
+            "p10": 0.9876808201599833,
+            "p50": 1.0846672025770812,
+            "p90": 1.1834185902741479,
+            "safe": true,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.07694762053999615,
+              "maxDD": 0.12707243468297835,
+              "multiple": 1.3959684876649823,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.12,
+            "pHit": 0,
+            "pBreach": 0.017666666666666667,
+            "p10": 0.973163215265953,
+            "p50": 1.0951316405398066,
+            "p90": 1.234406019136647,
+            "safe": true,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.09163890393099328,
+              "maxDD": 0.1438441974278023,
+              "multiple": 1.4837321975962685,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.18,
+            "pHit": 0,
+            "pBreach": 0.056,
+            "p10": 0.9511587355090301,
+            "p50": 1.1045740234235297,
+            "p90": 1.3110683613010718,
+            "safe": true,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.10839851063588868,
+              "maxDD": 0.16466741630371262,
+              "multiple": 1.5890285526684471,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.25,
+            "pHit": 0,
+            "pBreach": 0.14133333333333334,
+            "p10": 0.9234970579892561,
+            "p50": 1.1111886631666834,
+            "p90": 1.4066597334942454,
+            "safe": true,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.12668879031819258,
+              "maxDD": 0.18937600876857874,
+              "multiple": 1.7104795273439048,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.35,
+            "pHit": 0,
+            "pBreach": 0.287,
+            "p10": 0.8873702819492798,
+            "p50": 1.1234108816818247,
+            "p90": 1.5509211667067446,
+            "safe": false,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.1547088573818689,
+              "maxDD": 0.21475661418633762,
+              "multiple": 1.9104084798789964,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.5,
+            "pHit": 0,
+            "pBreach": 0.5183333333333333,
+            "p10": 0.8397850843488971,
+            "p50": 1.1402776383846451,
+            "p90": 1.7814202460922084,
+            "safe": false,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.19743147798191485,
+              "maxDD": 0.23279672025925013,
+              "multiple": 2.249717662439069,
+              "tacks": 16
+            }
+          },
+          {
+            "sigma": 0.7,
+            "pHit": 0.0003333333333333333,
+            "pBreach": 0.7343333333333333,
+            "p10": 0.7904911790769775,
+            "p50": 1.1409015911019993,
+            "p90": 2.086572632563976,
+            "safe": false,
+            "viable": false,
+            "backtest": {
+              "cagr": 0.2390050000123498,
+              "maxDD": 0.280593201923236,
+              "multiple": 2.6231840645746254,
+              "tacks": 16
+            }
+          }
+        ],
+        "viable": false,
+        "counters": {
+          "sameDeadline": {
+            "target": 10600,
+            "sigma": 0.04,
+            "odds": 0.5
+          }
+        }
+      },
+      "wind": {
+        "lead": [
+          "tradewind",
+          "monsoon"
+        ],
+        "score": [
+          [
+            "tradewind",
+            0.16323836130249791
+          ],
+          [
+            "monsoon",
+            0.1506051499736787
+          ],
+          [
+            "corsair",
+            0.0975267139892586
+          ],
+          [
+            "harbor",
+            0.03339071430431262
+          ],
+          [
+            "lighthouse",
+            0.02340238318553456
+          ],
+          [
+            "ballast",
+            0.006149967154966518
+          ]
+        ],
+        "week": "2026-09-21"
+      }
+    },
+    {
+      "type": "navigate",
+      "at": 17221,
+      "decision": "DECLINE",
+      "sigma": null,
+      "headline": "Goal too ambitious for your risk limit",
+      "message": "Reaching $100,000 from $10,000 by next October would require a 900% annual return, which is not achievable with any viable course while staying within your 15% dip limit. A more realistic target, like $10,600, has a 50% chance of success with a low-risk course.",
+      "why": "None of the available courses can meet the required return without exceeding your 15% dip limit.",
+      "guard": [],
+      "call": {
+        "at": "2026-09-29T20:05:34.601Z",
+        "flow": "navigate",
+        "model": "qwen3-32b",
+        "id": "chat-8ac0f164af4c41d6bc737c8907f5fffa",
+        "ms": 3118,
+        "prompt": 790,
+        "completion": 148,
+        "reasoning": 1,
+        "joulesMax": 561.2
+      }
+    },
+    {
+      "type": "record",
+      "at": 21973,
+      "hash": "BD08D81FE39FE63B95D8DAEDAF63F1F18DFE93CB6C9D9E11C3BCFFE457213CBD",
+      "decision": "DECLINE",
+      "dh": "3b70dd7a5414d768f0753e58ff72cab23a60455eb1db42ca951afedd31330f6b"
+    }
+  ],
+  "ms": 22872,
+  "startedAt": "2026-09-29T20:05:17.380Z"
+}
