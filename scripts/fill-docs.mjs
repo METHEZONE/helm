@@ -36,7 +36,7 @@ V.forEach((v, i) => {
 
 const flows = {}; const all = V.flatMap((v) => v.kiln);
 for (const c of all) { const f = (flows[c.flow] ||= { calls: 0, p: 0, c: 0, r: 0, ms: 0, j: 0 }); f.calls++; f.p += c.prompt; f.c += c.completion; f.r += c.reasoning; f.ms += c.ms; f.j += c.joulesMax; }
-let kiln = `| Flow | Calls | Prompt tokens | Completion tokens | Reasoning tokens | Avg latency | Energy (upper bound) |\n|---|---|---|---|---|---|---|\n`;
+let kiln = `| Flow | Calls | Prompt tokens | Completion tokens | Reasoning tokens | Avg latency | Energy (est., 1 card) |\n|---|---|---|---|---|---|---|\n`;
 for (const [k, f] of Object.entries(flows)) kiln += `| **${k}** | ${f.calls} | ${f.p} | ${f.c} | ${f.r} | ${Math.round(f.ms / f.calls)} ms | ${f.j.toFixed(0)} J |\n`;
 const T = Object.values(flows).reduce((a, f) => ({ calls: a.calls + f.calls, tok: a.tok + f.p + f.c, j: a.j + f.j }), { calls: 0, tok: 0, j: 0 });
 kiln += `| chart · guard · sizing · swaps · records | — | 0 | 0 | 0 | code | 0 J |\n| **total, 3 runs** | **${T.calls}** | | | | | **${(T.j / 1000).toFixed(2)} kJ** (${T.tok.toLocaleString()} tokens) |\n\n`;

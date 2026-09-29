@@ -114,7 +114,7 @@ All three runs are **live, end‑to‑end**: Kiln inference plus real XRPL Testn
 
 **What changes between runs, and how you can verify it:**
 - **R1 → R2 (new budget).** The sailor adds $3,000 with the same target and date. The amended charter is a new on‑chain record. helm re‑reads the vault's *on‑chain* holdings, finds it now needs fewer "knots", picks a calmer course and **tacks**: it sells crypto and buys T‑bills (the SELL rows above). Least risk that still gets there.
-- **R3 (goal can't be met).** It needs ~900%/yr, and every course has 0% odds. helm **declines**. **No money moves** (there is no `board` tx). The decline and the code‑computed counter‑offers are written on‑chain.
+- **R3 (goal can't be met).** The same sailor re‑runs helm with harsher conditions (10× in 12 months, 15% dip limit). That needs ~900%/yr, and every course has 0% odds. helm **declines**. **No money moves** (there is no `board` tx). The decline and the code‑computed counter‑offers are written on‑chain.
 
 ## 4. How the chain is used: what the agent reads, writes and settles
 
@@ -129,7 +129,7 @@ The testnet world (`npm run setup`) has four accounts. A **mint** tokenizes 9 as
 ## 5. Kiln API: per flow, tokens, energy
 
 <!--KILN-->
-| Flow | Calls | Prompt tokens | Completion tokens | Reasoning tokens | Avg latency | Energy (upper bound) |
+| Flow | Calls | Prompt tokens | Completion tokens | Reasoning tokens | Avg latency | Energy (est., 1 card) |
 |---|---|---|---|---|---|---|
 | **intake** | 3 | 925 | 185 | 3 | 2295 ms | 1239 J |
 | **navigate** | 3 | 2492 | 402 | 3 | 3376 ms | 1823 J |
