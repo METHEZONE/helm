@@ -86,5 +86,7 @@ export async function handler(req, res) {
 if (import.meta.url === `file://${process.argv[1]}`) http.createServer(handler).listen(PORT, () => console.log(`helm → http://localhost:${PORT}`));
 
 async function portfolioSafe() {
-  try { return await portfolio(chain.accounts()); } catch { return null; }
+  // needs addresses only, so it works on the key-less public deploy too
+  const a = chain.publicAccounts();
+  try { return await portfolio({ mint: { address: a.mint }, vault: { address: a.vault } }); } catch { return null; }
 }
