@@ -1,0 +1,11 @@
+{
+  "buildCommand": "",
+  "outputDirectory": "web",
+  "functions": { "api/handler.js": { "maxDuration": 60, "includeFiles": "{data,src}/**" } },
+  "rewrites": [
+    { "source": "/helm/api/:route*", "destination": "/api/handler?route=:route*" },
+    { "source": "/helm", "destination": "/index.html" },
+    { "source": "/helm/:path*", "destination": "/:path*" },
+    { "source": "/", "destination": "/index.html" }
+  ]
+}

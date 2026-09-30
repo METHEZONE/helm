@@ -93,6 +93,19 @@ WIND: Prime follows ${wind.lead.map((id) => CAPTAINS.find((c) => c.id === id).na
     guard.push(`explanation said ${n}% — not a figure for this decision; corrected to ${to}%`);
     return `${to}%`;
   });
+  // If the guard overrode the model's decision or course, its words describe the wrong plan: say it in code.
+  if (guard.some((g) => g.startsWith('model chose SAIL') || g.startsWith("model's course"))) {
+    const best = [...sea.courses].sort((a, b) => b.pHit - a.pHit)[0];
+    const c = sea.counters;
+    if (!chosen) {
+      d.headline = 'Not a voyage I can take you on';
+      d.message = `No course keeps your ${pc(goal.maxDrawdown)}% dip limit with even odds — the best reaches ${pc(best.pHit)}%.` + (c.sameDeadline ? ` ${usd(c.sameDeadline.target)} by the same date is an even bet` : '') + (c.sameTarget ? `, or ${usd(goal.target)} by ${c.sameTarget.deadline}.` : '.');
+    } else {
+      d.headline = `Setting course: ${NAMES[chosen.sigma]}`;
+      d.message = `${NAMES[chosen.sigma]} gives you a ${pc(chosen.pHit)}% chance to arrive, with a ${pc(chosen.pBreach)}% risk of a dip beyond ${pc(goal.maxDrawdown)}%.`;
+    }
+    d.why = 'The guard overrode the navigator; this explanation is written from the numbers.';
+  }
   const fixA = (t) => fix(t).replace(/\ban (?=(?:[0-79]|1[02-79])\d?%)/g, 'a '); // "an 82%" → "a 76%"
   return { decision, course: chosen, headline: fixA(d.headline), message: fixA(d.message), why: fixA(d.why), guard, call };
 }
@@ -133,7 +146,6 @@ export async function portfolio(acct) {
 // ---- the whole voyage -------------------------------------------------------------------------
 // spec: { id, text, amend?: previous voyage (same vault, conditions changed) }
 export async function voyage(spec, on = () => {}) {
-  const acct = chain.accounts();
   const k0 = calls.length, t0 = Date.now();
   const step = (type, data) => { const e = { type, at: Date.now() - t0, ...data }; on(e); return e; };
   const log = [];
@@ -141,6 +153,19 @@ export async function voyage(spec, on = () => {}) {
   step('listen', { text: spec.text });
   const { goal } = await intake(spec.text, spec.amend?.goal);
   log.push(step('intake', { goal, call: calls.at(-1) }));
+
+  // Preview (public deploy): same Kiln calls, same odds, same guard — but no keys, so no transactions.
+  if (spec.dry) {
+    const sea = chartSea(goal), wind = F.prime(0.5, goal.exclude).now;
+    log.push(step('chart', { sea, wind: { lead: wind.lead, score: wind.score, week: wind.week } }));
+    const nav = await navigate(spec.text, goal, sea, wind);
+    log.push(step('navigate', { decision: nav.decision, sigma: nav.course?.sigma ?? null, headline: nav.headline, message: nav.message, why: nav.why, guard: nav.guard, call: calls.at(-1) }));
+    if (nav.course) { const plan = F.prime(nav.course.sigma, goal.exclude).now; log.push(step('plan', { weights: plan.weights, lead: plan.lead, exposure: plan.exposure })); }
+    const decision = { v: spec.id, goal, decision: nav.decision, sigma: nav.course?.sigma ?? null, odds: nav.course ? +nav.course.pHit.toFixed(3) : null, counters: sea.counters, lead: wind.lead, rules: RULES, dataWeek: wind.week };
+    step('done', { id: spec.id });
+    return { id: spec.id, dry: true, text: spec.text, goal, decision, nav: { headline: nav.headline, message: nav.message, why: nav.why, guard: nav.guard }, sea, execution: { trades: [] }, kiln: calls.slice(k0), log, ms: Date.now() - t0 };
+  }
+  const acct = chain.accounts();
 
   // Sailor signs the charter on-chain (their words are hashed, the terms are readable).
   const charter = { v: spec.id, stake: goal.stake, target: goal.target, by: goal.deadline, dd: goal.maxDrawdown, ex: goal.exclude, words: sha(spec.text).slice(0, 16) };

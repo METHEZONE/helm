@@ -10,6 +10,8 @@ import { byFlow } from './kiln.js';
 import * as chain from './chain.js';
 
 const PORT = +process.env.PORT || 4800;
+// Public deploy: real Kiln inference + real odds, but no signing keys on the server → no transactions.
+const DRY = process.env.HELM_DRY_RUN === '1';
 const F = build();
 const web = path.join(root, 'web');
 const vdir = path.join(cfg.dataDir, 'voyages');
@@ -34,11 +36,13 @@ let busy = false;
 const send = (res, code, body, type = 'application/json') => { res.writeHead(code, { 'Content-Type': type, 'Cache-Control': 'no-store' }); res.end(type === 'application/json' ? JSON.stringify(body) : body); };
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.json': 'application/json', '.woff2': 'font/woff2', '.mp4': 'video/mp4' };
 
-http.createServer(async (req, res) => {
+export async function handler(req, res) {
   const url = new URL(req.url, 'http://x');
+  // served under /helm (thezonebio.com/helm); Vercel passes the API route as ?route=
+  url.pathname = url.searchParams.get('route') ? '/api/' + url.searchParams.get('route') : url.pathname.replace(/^\/helm(?=\/|$)/, '') || '/';
   try {
     if (url.pathname === '/api/state') {
-      return send(res, 200, { accounts: chain.publicAccounts(), explorer: cfg.explorer, rules: RULES, voyages: readVoyages(), runs: recorded(), assets: F.snap.assets, dataWeek: F.snap.weeks.at(-1), source: F.snap.source });
+      return send(res, 200, { dry: DRY, accounts: chain.publicAccounts(), explorer: cfg.explorer, rules: RULES, voyages: readVoyages(), runs: recorded(), assets: F.snap.assets, dataWeek: F.snap.weeks.at(-1), source: F.snap.source });
     }
     if (url.pathname === '/api/regatta') return send(res, 200, REGATTA);
     if (url.pathname === '/api/courses') { // the wheel: preview the odds of every course for any goal
@@ -67,7 +71,7 @@ http.createServer(async (req, res) => {
       busy = true;
       res.writeHead(200, { 'Content-Type': 'application/x-ndjson', 'Cache-Control': 'no-store' });
       try {
-        const r = await voyage({ id: id || 'v' + Date.now().toString(36), text, amend: prev }, (e) => res.write(JSON.stringify(e) + '\n'));
+        const r = await voyage({ id: id || 'v' + Date.now().toString(36), text, amend: prev, dry: DRY }, (e) => res.write(JSON.stringify(e) + '\n'));
         res.write(JSON.stringify({ type: 'result', result: { ...r, kilnByFlow: byFlow(r.kiln) } }) + '\n');
       } catch (e) { res.write(JSON.stringify({ type: 'error', error: String(e.message || e) }) + '\n'); }
       finally { busy = false; res.end(); }
@@ -77,7 +81,9 @@ http.createServer(async (req, res) => {
     if (!p.startsWith(web) || !fs.existsSync(p) || fs.statSync(p).isDirectory()) return send(res, 404, 'not found', 'text/plain');
     return send(res, 200, fs.readFileSync(p), MIME[path.extname(p)] || 'application/octet-stream');
   } catch (e) { if (!res.headersSent) send(res, 500, { error: String(e.message || e) }); }
-}).listen(PORT, () => console.log(`helm → http://localhost:${PORT}`));
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) http.createServer(handler).listen(PORT, () => console.log(`helm → http://localhost:${PORT}`));
 
 async function portfolioSafe() {
   try { return await portfolio(chain.accounts()); } catch { return null; }

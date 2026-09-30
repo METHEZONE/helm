@@ -1,0 +1,6 @@
+node_modules
+.env
+.keys
+docs/helm-demo.mp4
+docs/img
+docs/helm-deck.pdf

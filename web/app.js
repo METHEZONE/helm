@@ -237,14 +237,14 @@ function finish(r) {
   if (sail) {
     sailTo(S.amend ? 62 : 52, { rig: ship.classList.contains('reef') ? 'reef' : ship.classList.contains('full') ? 'full' : '' });
     v.className = 'card on';
-    v.innerHTML = `<div class="eyebrow">⚓ Under way · ${r.execution.trades.length} trades settled on XRPL</div><h2>${r.nav.headline}</h2><p>${r.nav.message}</p>
+    v.innerHTML = `<div class="eyebrow">${r.dry ? '⚓ Preview · live Kiln decision, no transactions on this public site' : `⚓ Under way · ${r.execution.trades.length} trades settled on XRPL`}</div><h2>${r.nav.headline}</h2><p>${r.nav.message}</p>
       <div class="row"><button class="cta" id="amendBtn">Life changed? Re‑plan</button><button class="cta ghost" id="lbBtn">Open logbook</button><button class="cta ghost" id="newBtn">New destination</button></div>`;
     $('#newBtn').onclick = () => { S.amend = null; $('#compose').classList.remove('away'); $('#hud').classList.remove('on'); v.className = 'card'; sailTo(12); };
     $('#amendBtn').onclick = () => { S.amend = r.id; $('#compose').classList.remove('away'); $('#hud').classList.remove('on'); v.className = 'card'; $('#goal').value = 'Good news — I got a bonus and I am adding $3,000. Same goal: $15,000, same date. I would rather sleep well now.'; $('#goal').focus(); };
   } else {
     v.className = 'card on stop';
     const c = r.decision.counters;
-    v.innerHTML = `<div class="eyebrow">Declined · recorded on‑chain, no money moved</div><h2>${r.nav.headline}</h2><p>${r.nav.message}</p>
+    v.innerHTML = `<div class="eyebrow">${r.dry ? 'Declined · preview, no money moved' : 'Declined · recorded on‑chain, no money moved'}</div><h2>${r.nav.headline}</h2><p>${r.nav.message}</p>
       <div class="alts">
         ${c.sameDeadline ? `<button class="alt" data-t="${c.sameDeadline.target}"><b>${usd(c.sameDeadline.target)}</b><span>same date, same dip limit · even odds</span></button>` : ''}
         ${c.sameTarget ? `<button class="alt"><b>${new Date(c.sameTarget.deadline).getFullYear()}</b><span>same target, later landfall · ${pct(c.sameTarget.odds)} odds</span></button>` : `<button class="alt"><b>Not in 25 yrs</b><span>${usd(r.goal.target)} with a ${pct(r.goal.maxDrawdown)} dip limit</span></button>`}
@@ -258,7 +258,7 @@ function finish(r) {
 async function live(text) {
   if (!text) return;
   $('#go').disabled = true; resetHud(text);
-  const r = await fetch('/api/voyage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text, amend: S.amend, id: S.amend || undefined }) });
+  const r = await fetch('/helm/api/voyage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text, amend: S.amend, id: S.amend || undefined }) });
   if (!r.ok) { const j = await r.json().catch(() => ({})); toast(j.error || 'failed'); $('#go').disabled = false; return; }
   const reader = r.body.getReader(), dec = new TextDecoder(); let buf = '';
   for (;;) {
@@ -352,7 +352,7 @@ addEventListener('resize', () => race.draw());
 
 // ------------------------------------------------------------------ logbook
 async function loadLogbook() {
-  const [j, st] = await Promise.all([fetch('/api/logbook').then((r) => r.json()), fetch('/api/state').then((r) => r.json())]);
+  const [j, st] = await Promise.all([fetch('/helm/api/logbook').then((r) => r.json()), fetch('/helm/api/state').then((r) => r.json())]);
   S.state = st;
   const words = (r) => {
     const d = r.data;
@@ -365,7 +365,7 @@ async function loadLogbook() {
   };
   $('#chainRows').innerHTML = j.records.slice().reverse().map((r) => `<tr><td><span class="pill ${r.type}">${r.type}</span><div class="fine mono" style="margin-top:4px">${r.data.v}</div></td><td>${r.by}</td><td>${words(r)}${['log', 'decline'].includes(r.type) ? ` <button class="verify" data-tx="${r.hash}">verify</button>` : ''}</td><td>${txLink(r.hash)}<div class="fine">#${r.ledger}</div></td></tr>`).join('');
   document.querySelectorAll('.verify').forEach((b) => (b.onclick = async () => {
-    const v = await (await fetch('/api/verify?tx=' + b.dataset.tx)).json();
+    const v = await (await fetch('/helm/api/verify?tx=' + b.dataset.tx)).json();
     b.textContent = v.match ? '✓ hash matches ledger' : '✗ mismatch'; b.classList.toggle('ok', !!v.match);
     toast(v.match ? `Decision re-hashed: ${v.recomputed.slice(0, 12)}… = on-chain` : 'hash mismatch');
   }));
@@ -380,8 +380,9 @@ async function loadLogbook() {
 
 // ------------------------------------------------------------------ boot
 (async () => {
-  const [st, rg] = await Promise.all([fetch('/api/state').then((r) => r.json()), fetch('/api/regatta').then((r) => r.json())]);
+  const [st, rg] = await Promise.all([fetch('/helm/api/state').then((r) => r.json()), fetch('/helm/api/regatta').then((r) => r.json())]);
   S.state = st; S.regatta = rg;
+  if (st.dry) { $('#go').innerHTML = 'Preview the course <span aria-hidden="true">→</span>'; document.querySelector('#compose .fine').textContent = 'Public site: live Kiln AI decision, no transactions. The R1–R3 buttons replay the real testnet runs.'; }
   $('#walletChip').textContent = 'sailor ' + st.accounts.sailor.slice(0, 6) + '…' + st.accounts.sailor.slice(-4);
   const m = st.voyages[0]?.kiln?.[0]?.model; if (m) $('#kilnChip').textContent = 'Kiln NPU · ' + m;
   turnWheel(0.35);

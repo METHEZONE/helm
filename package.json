@@ -1,7 +1,7 @@
 {
   "name": "helm",
   "version": "1.0.0",
-  "description": "helm \u2014 AI navigator that steers your money across every asset class toward your goal",
+  "description": "helm — AI navigator that steers your money across every asset class toward your goal",
   "scripts": {
     "market": "node src/market.js",
     "check": "node src/fleet.js",
@@ -22,5 +22,17 @@
   "dependencies": {
     "xrpl": "^4.6.0"
   },
-  "type": "module"
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "overrides": {
+    "@noble/hashes": "1.8.0",
+    "@xrplf/isomorphic": {
+      "@noble/hashes": "1.8.0"
+    },
+    "ripple-address-codec": {
+      "@scure/base": "1.2.6"
+    }
+  }
 }
